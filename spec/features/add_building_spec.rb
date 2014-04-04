@@ -19,7 +19,6 @@ feature 'add a new building record', %q{
     click_on 'Record Building'
 
     expect(page).to have_content 'Building was succesfully recorded'
-    expect(page).to have_content 'New York City'
     expect(Building.count).to eq(pre_count + 1)
   end
 

@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
   def create
     @building = Building.new(building_params)
     if @building.save
-      redirect_to buildings_path, notice: 'Building was succesfully recorded'
+      redirect_to new_building_path, notice: 'Building was succesfully recorded'
     else
       render :new
     end
