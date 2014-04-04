@@ -12,6 +12,4 @@ describe Owner do
   it { should_not have_valid(:email).when( nil, '', 'bad@net', 'terrible.com', 'words') }
 
 
-
-
 end
