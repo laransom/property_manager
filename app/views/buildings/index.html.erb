@@ -1,0 +1,18 @@
+<h1>Buildings</h1>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip Code</th>
+  </tr>
+  <%= @buildings.each do |building| %>
+    <tr>
+      <td><%= building.address %></td>
+      <td><%= building.city %></td>
+      <td><%= building.state %></td>
+      <td><%= building.zip_code %></td>
+    </tr>
+  <% end %>
+</table>
