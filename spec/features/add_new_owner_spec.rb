@@ -10,16 +10,23 @@ feature 'add a new owner record', %q{
     pre_count = Owner.count
     visit new_owner_path
 
-    fill_in :first_name, with: 'Sterling'
-    fill_in :last_name, with: 'Archer'
-    fill_in :email, with: 'valid@email.com'
-    fill_in :company_name, with: 'Isis'
+    fill_in 'First Name', with: 'Sterling'
+    fill_in 'Last Name', with: 'Archer'
+    fill_in 'Email', with: 'valid@email.com'
+    fill_in 'Company Name', with: 'Isis'
 
     click_on 'Add Owner'
 
     expect(page).to have_content 'Owner was succesfully added'
-    expect(page).to have_content 'Sterling Archer'
     expect(Owner.count).to eq(pre_count + 1)
+  end
+
+  scenario 'fills registration form with invalid attributes' do
+    visit new_owner_path
+
+    click_on 'Add Owner'
+
+    expect(page).to have_content("can't be blank")
   end
 
 end
