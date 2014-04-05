@@ -29,4 +29,14 @@ feature 'add a new owner record', %q{
     expect(page).to have_content("can't be blank")
   end
 
+  scenario 'fill registration form with invalid email' do
+    visit new_owner_path
+
+    fill_in 'Email', with: 'invalidemail'
+
+    click_on 'Add Owner'
+
+    expect(page).to have_content('is invalid')
+  end
+
 end
