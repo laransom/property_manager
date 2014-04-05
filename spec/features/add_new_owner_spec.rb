@@ -22,14 +22,17 @@ feature 'add a new owner record', %q{
   end
 
   scenario 'fills registration form with invalid attributes' do
+    pre_count = Owner.count
     visit new_owner_path
 
     click_on 'Add Owner'
 
     expect(page).to have_content("can't be blank")
+    expect(Owner.count).to eq(pre_count)
   end
 
   scenario 'fill registration form with invalid email' do
+    pre_count = Owner.count
     visit new_owner_path
 
     fill_in 'Email', with: 'invalidemail'
@@ -37,6 +40,7 @@ feature 'add a new owner record', %q{
     click_on 'Add Owner'
 
     expect(page).to have_content('is invalid')
+    expect(Owner.count).to eq(pre_count)
   end
 
 end

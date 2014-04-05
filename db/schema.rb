@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20140404174849) do
-=======
-ActiveRecord::Schema.define(version: 20140404191609) do
->>>>>>> assoc
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +28,8 @@ ActiveRecord::Schema.define(version: 20140404191609) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
+
+
   create_table "owners", force: true do |t|
     t.string   "first_name",   null: false
     t.string   "last_name",    null: false
@@ -41,5 +39,5 @@ ActiveRecord::Schema.define(version: 20140404191609) do
     t.datetime "updated_at"
   end
 
->>>>>>> assoc
+
 end

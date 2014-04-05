@@ -23,14 +23,17 @@ feature 'add a new building record', %q{
   end
 
   scenario 'fills registration form with invalid attributes' do
+    pre_count = Building.count
     visit new_building_path
 
     click_on 'Record Building'
 
     expect(page).to have_content("can't be blank")
+    expect(Building.count).to eq(pre_count)
   end
 
   scenario 'fills registration with invalid zip code' do
+    pre_count = Building.count
     visit new_building_path
 
     fill_in 'Zip Code', with: '398'
@@ -38,6 +41,7 @@ feature 'add a new building record', %q{
     click_on 'Record Building'
 
     expect(page).to have_content('is the wrong length')
+    expect(Building.count).to eq(pre_count)
 
   end
 
